@@ -15,124 +15,94 @@ final class NetworkLayer {
     
     private var baseURL = URL(string: "https://dummyjson.com/products")!
     
-    func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
-        let request = URLRequest(url: baseURL)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            
-            if let data = data {
-                let model: Products = self.decode(with: data)
-                completion(.success(model.product))
-            }
-        }
-        .resume()
+    func fetchCategory() throws -> [Category] {
+        let decode = JSONDecoder()
+        let category = try decode.decode([Category].self, from: Data(categoryJSON.utf8))
+        return category
     }
     
-    func searchProducts(by word: String, completion: @escaping (Result<[Product], Error>) -> Void) {
+    func fetchOrderType() throws -> [TypeOfOrder] {
+        let decod = JSONDecoder()
+        let orderType = try decod.decode([TypeOfOrder].self, from: Data(orderTypeJSON.utf8))
+        return orderType
+    }
+    
+    func fetchProducts() async throws -> Products {
+        let request = URLRequest(url: baseURL)
+        let (data,_) = try await URLSession.shared.data(for: request)
+        return try decode(with: data)
+    }
+    
+    func searchProducts(by word: String) async throws -> Products  {
         let url = baseURL.appendingPathComponent("search")
         
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [.init(name: "t", value: word)]
-        if let url = urlComponents?.url {
-            let request = URLRequest(url: url)
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                if let error = error {
-                    completion(.failure(error))
-                }
-                
-                if let data = data {
-                    let model: Products = self.decode(with: data)
-                    completion(.success(model.product))
-                }
-            }
-            .resume()
+        urlComponents?.queryItems = [.init(name: "q", value: word)]
+        guard let url = urlComponents?.url else {
+            return Products(products: [])
+        }
+        
+        let (data, _) = try await URLSession.shared.data(for: URLRequest(url: url))
+        return try decode(with: data)
+    }
+    
+    func decode<T: Decodable>(with data: Data) throws -> T {
+        try JSONDecoder().decode(T.self, from: data)
+    }
+        
+    func encodeData<T: Encodable>(product: T, completion: @escaping (Result<Data, Error>) -> Void) {
+        let encoder = JSONEncoder()
+        do {
+            let encodedData = try encoder.encode(product)
+            completion(.success(encodedData))
+        } catch {
+            completion(.failure(error))
         }
     }
     
-//https://dummyjson.com/posts/search?q=love
+    func deleteProductsData(id: Int) async throws -> Bool {
+        var request = URLRequest(url: baseURL.appendingPathComponent("\(id)"))
+        request.httpMethod = "DELETE"
+        let (_, response) = try await URLSession.shared.data(for: request)
+        if let httpResponse = response as? HTTPURLResponse,
+            httpResponse.statusCode == 200 {
+            return true
+        } else {
+            return false
+        }
+    }
     
-    func decode<T: Decodable>(with data: Data) -> T {
-        try! JSONDecoder().decode(T.self, from: data)
+    func postProductsData(model: Product) async throws -> Bool {
+        var encodedProductModel: Data?
+        encodedProductModel = initializeData(product: encodedProductModel)
+        guard encodedProductModel != nil else {
+            return false
+        }
+        
+        var request = URLRequest(url: baseURL.appendingPathComponent("add"))
+        request.httpMethod = "POST"
+        request.httpBody = encodedProductModel
+        let (_, response) = try await URLSession.shared.data(for: request)
+        if
+            let httpResponse = response as? HTTPURLResponse,
+            httpResponse.statusCode == 200 {
+            return true
+        } else {
+            return false
+            
+        }
+    }
+    
+    private func initializeData<T: Encodable>(product: T) -> Data? {
+        var encodedData: Data?
+        encodeData(product: product) { result in
+            switch result {
+            case .success(let model):
+                encodedData = model
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        return encodedData
     }
 }
-
-
-
-
-
-
-
-
-//final class NetworkLayer {
-//    static let shared = NetworkLayer()
-//
-//    private init() { }
-//
-//    private var baseURL = URL(string: "https://i.dummyjson.com/data/products/24/1.jpg")!
-//
-////    func fetchProducts() throws -> [Product] {
-////        let decoder = JSONDecoder()
-////        let product = try decoder.decode([Product].self, from: Data(productJSON.utf8))
-////        return product
-////    }
-//    func fetchCategory() throws -> [Category] {
-//        let decode = JSONDecoder()
-//        let category = try decode.decode([Category].self, from: Data(categoryJSON.utf8))
-//        return category
-//    }
-//    func fetchOrderType() throws -> [TypeOfOrder] {
-//        let decod = JSONDecoder()
-//        let orderType = try decod.decode([TypeOfOrder].self, from: Data(orderTypeJSON.utf8))
-//        return orderType
-//    }
-//
-//    func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
-//        let request = URLRequest(url: baseURL)
-//
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                completion(.failure(error))
-//            }
-//
-//            if let data = data {
-//                let model: Products = self.decode(with: data)
-//                completion(.success(model.product))
-//            }
-//        }
-//        .resume()
-//    }
-//
-//    func searchProducts(by word: String, completion: @escaping (Result<[Product], Error>) -> Void) {
-//        let url = baseURL.appendingPathComponent("search")
-//
-//        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-//        urlComponents?.queryItems = [.init(name: "q", value: word)]
-//        if let url = urlComponents?.url {
-//            let request = URLRequest(url: url)
-//            URLSession.shared.dataTask(with: request) { data, response, error in
-//                if let error = error {
-//                    completion(.failure(error))
-//                }
-//
-//                if let data = data {
-//                  let model: Products = self.decode(with: data)
-//                    completion(.success(model.product))
-//                }
-//            }
-//            .resume()
-//        }
-//    }
-//
-////https://dummyjson.com/posts/search?q=love
-//
-//    func decode<T: Decodable>(with data: Data) -> T {
-////
-//        try! JSONDecoder().decode(T.self, from: data)
-//
-//    }
-//}
-//
-//

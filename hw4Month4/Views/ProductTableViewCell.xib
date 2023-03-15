@@ -46,13 +46,6 @@
                     <color key="textColor" systemColor="systemGreenColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3s-Yc-0kS">
-                    <rect key="frame" x="115" y="244" width="193" height="43"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0h-Lr-yYO">
                     <rect key="frame" x="139" y="282" width="193" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -61,7 +54,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Yw-Bwd">
-                    <rect key="frame" x="306" y="252" width="107" height="44"/>
+                    <rect key="frame" x="313" y="252" width="107" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -75,7 +68,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eZ9-5w-b1l">
-                    <rect key="frame" x="243" y="267.66666666666669" width="101" height="13.666666666666686"/>
+                    <rect key="frame" x="252" y="265.66666666666669" width="101" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fsd-hv-Cyy">
@@ -88,20 +81,27 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" systemColor="systemGreenColor"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3s-Yc-0kS">
+                    <rect key="frame" x="115" y="252" width="191" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="costLable" destination="y0h-Lr-yYO" id="Sfr-j2-geZ"/>
-                <outlet property="deliveryLable" destination="eZC-k1-4Qm" id="UdN-au-W8c"/>
-                <outlet property="distanceLable" destination="EH3-fW-5U2" id="5d7-oo-ump"/>
-                <outlet property="openCloseLable" destination="vLz-mp-1jB" id="YZx-vn-kMJ"/>
-                <outlet property="productImageView" destination="Cyc-zA-hbq" id="q5U-hI-p3u"/>
-                <outlet property="productNameLable" destination="vIe-i0-Kxe" id="s9c-jU-9iV"/>
-                <outlet property="rateLable" destination="jbK-GY-TuF" id="kfg-uA-13e"/>
-                <outlet property="timeLable" destination="EPR-Yw-Bwd" id="LwX-ri-ylT"/>
-                <outlet property="whereFromProducts" destination="f3s-Yc-0kS" id="nsJ-fi-MpW"/>
+                <outlet property="brandLable" destination="eZC-k1-4Qm" id="imq-7h-w2T"/>
+                <outlet property="categoryLable" destination="vLz-mp-1jB" id="eiH-Nc-eut"/>
+                <outlet property="descriptionLable" destination="f3s-Yc-0kS" id="USr-Gh-SO9"/>
+                <outlet property="discountPercentageLable" destination="EPR-Yw-Bwd" id="gUw-cc-qb7"/>
+                <outlet property="priceLable" destination="y0h-Lr-yYO" id="2rD-EY-kbd"/>
+                <outlet property="productImageView" destination="Cyc-zA-hbq" id="QHk-ee-uxB"/>
+                <outlet property="ratingLable" destination="jbK-GY-TuF" id="Uzx-3q-z57"/>
+                <outlet property="stock" destination="EH3-fW-5U2" id="tvx-dY-lCB"/>
+                <outlet property="titleLable" destination="vIe-i0-Kxe" id="jrD-oP-EWe"/>
             </connections>
             <point key="canvasLocation" x="58.46153846153846" y="122.27488151658767"/>
         </view>
