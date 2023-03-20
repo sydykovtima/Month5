@@ -13,30 +13,13 @@ class MenuViewController: UIViewController{
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet weak var DishesLabel: UILabel!
-    
-    private let rice: [Menu] = [
-        Menu(name: "Fried Rice",
-             riceImage: "4"
-            ),
-        Menu(name: "Jollof Rice",
-             riceImage: "3"
-            ),
-        Menu(name: "Amala",
-                riceImage: "3"
-            )
-        ,Menu(name: "ButterFly Pasta",
-                riceImage: "2"
-             )
-        ,Menu(name: "Pasta Rigatoni",
-                riceImage: "1")
-        ,Menu(name: "white Rice",
-                riceImage: "6"),
-    ]
-    
-    
+    var model: [Coctails] = []
+    private var viewModel = CoctailViewModel()
+    private var viewApi = NetworkService.shared.cocktails
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
+        fetchCarts()
     }
     
     private func configureVC() {
@@ -48,6 +31,18 @@ class MenuViewController: UIViewController{
                         forCellWithReuseIdentifier: RiceCollectionViewCell.reusId
         )
     }
+    private func fetchCarts() {
+        Task {
+            do {
+                viewApi = try await viewModel.fetchCarts()
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension MenuViewController: UICollectionViewDataSource {
@@ -55,7 +50,7 @@ extension MenuViewController: UICollectionViewDataSource {
         collectionView: UICollectionView,
         numberOfItemsInSection section: Int
         ) -> Int {
-        return rice.count
+        return viewApi.drinks!.count
     }
 
     func collectionView(_
@@ -67,41 +62,53 @@ extension MenuViewController: UICollectionViewDataSource {
         RiceCollectionViewCell.reusId,
         for: indexPath
         ) as! RiceCollectionViewCell
-        let model = rice[indexPath.row]
+        let model = viewApi.drinks![indexPath.row]
         cell.display(item: model)
+        print("dsff")
+        print("cell created")
         cell.delegate = self
         return cell
         
     }
 }
 
-extension MenuViewController: UICollectionViewDelegateFlowLayout {
+extension MenuViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_
         collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
          ) -> CGSize {
-        return CGSize(width: collectionView.frame.height / 4,
-                      height: collectionView.frame.height / 2)
+        return CGSize(
+            width: collectionView.frame.width / 2 - 13,
+            height: collectionView.frame.height / 2
+        )
     }
     func collectionView(_
         collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
          )  {
-        let vc = DescriptViewController()
-        vc.text = rice[indexPath.row].riceImage
-        navigationController?.pushViewController(vc, animated: true)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? RiceCollectionViewCell else { return }
+        cell.delegate = self
+        cell.delegate?.didSelectionsProducts(item: viewApi.drinks![indexPath.row])
     }
 }
 
 extension MenuViewController: ProductsCellDelegate {
-    func didSelectionsProducts(item: Menu) {
-        let secondVC = storyboard?
-            .instantiateViewController(withIdentifier: DescriptViewController.id
-            ) as! DescriptViewController
+    func didSelectionsProducts(item: Coctails) {
+        let secondVC = DescriptViewController()
+        secondVC.prod = item
         navigationController?.pushViewController(secondVC, animated: true)
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

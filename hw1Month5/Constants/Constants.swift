@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
-//enum Constants {
-//    static let baseUrl = URL(string: "www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")!
-//    
-//}
+enum Constant {
+   static let baseUrl = URL(string:"www.thecocktaildb.com/api/json/v1/1/search.php")!
+}
+  
+

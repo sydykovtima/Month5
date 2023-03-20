@@ -7,21 +7,12 @@
 
 import Foundation
 
-struct Menu {
-    let name: String
-    let riceImage: String
+struct CotailsByName: Codable {
+    var drinks: [Coctails]?
 }
 
-
-
-//struct Coctails:Codable {
-//    let carts: [CoctailModel]
-//    let total: Int
-//    let skip: Int
-//    let limit: Int
-//}
-//
-//struct CoctailModel: Codable {
-//    var products: [CoctailMenu]
-//}
-
+struct Coctails: Codable {
+   var idDrink: String
+   var strDrink: String
+    var strDrinkThumb: String
+}

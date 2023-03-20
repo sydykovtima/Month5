@@ -6,9 +6,10 @@
 //
 
 import Foundation
-//
-//struct NetworkHelpers {
-//    static func decode<T: Decodable>(with data: Data) throws -> T {
-//        try JSONDecoder().decode(T.self, from: data)
-//    }
-//}
+
+struct NetworkHelpers {
+    static func decode<T: Decodable>(with data: Data) throws -> T {
+        try JSONDecoder().decode(T.self, from: data)
+    }
+}
+

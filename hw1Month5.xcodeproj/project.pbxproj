@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04754B3729C5C60B00ED9416 /* SearchCoctails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04754B3629C5C60B00ED9416 /* SearchCoctails.swift */; };
 		04BD8BF229BF250300F94F7D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD8BF129BF250300F94F7D /* Constants.swift */; };
-		04BD8BF729BF3E2100F94F7D /* RiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD8BF629BF3E2100F94F7D /* RiceViewModel.swift */; };
+		04BD8BF729BF3E2100F94F7D /* CoctailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD8BF629BF3E2100F94F7D /* CoctailsViewModel.swift */; };
 		04BD8BF929BF499200F94F7D /* CoctailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD8BF829BF499200F94F7D /* CoctailModal.swift */; };
 		04BD8BFB29BF49A200F94F7D /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD8BFA29BF49A200F94F7D /* ProductModel.swift */; };
 		04BD8BFD29BF4DC800F94F7D /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD8BFC29BF4DC800F94F7D /* NetworkHelpers.swift */; };
@@ -30,8 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04754B3629C5C60B00ED9416 /* SearchCoctails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoctails.swift; sourceTree = "<group>"; };
 		04BD8BF129BF250300F94F7D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		04BD8BF629BF3E2100F94F7D /* RiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiceViewModel.swift; sourceTree = "<group>"; };
+		04BD8BF629BF3E2100F94F7D /* CoctailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsViewModel.swift; sourceTree = "<group>"; };
 		04BD8BF829BF499200F94F7D /* CoctailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailModal.swift; sourceTree = "<group>"; };
 		04BD8BFA29BF49A200F94F7D /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		04BD8BFC29BF4DC800F94F7D /* NetworkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
@@ -53,16 +55,6 @@
 		04BF511529BF223900CD8B8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BF511729BF223900CD8B8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		04BF510329BF223800CD8B8A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		04BD8BEA29BF243200F94F7D /* Service */ = {
@@ -123,7 +115,7 @@
 				04BD8C1029C1085500F94F7D /* DescriptViewController.swift */,
 				04BD8C1129C1085500F94F7D /* DescriptViewController.xib */,
 				04BD8C0529C1072800F94F7D /* MenuViewController.xib */,
-				04BD8BF629BF3E2100F94F7D /* RiceViewModel.swift */,
+				04BD8BF629BF3E2100F94F7D /* CoctailsViewModel.swift */,
 			);
 			path = RiceWorkFlow;
 			sourceTree = "<group>";
@@ -132,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				04BD8BF829BF499200F94F7D /* CoctailModal.swift */,
+				04754B3629C5C60B00ED9416 /* SearchCoctails.swift */,
 				04BD8BFA29BF49A200F94F7D /* ProductModel.swift */,
 			);
 			path = DTOs;
@@ -213,7 +206,6 @@
 			buildConfigurationList = 04BF511A29BF223900CD8B8A /* Build configuration list for PBXNativeTarget "hw1Month5" */;
 			buildPhases = (
 				04BF510229BF223800CD8B8A /* Sources */,
-				04BF510329BF223800CD8B8A /* Frameworks */,
 				04BF510429BF223800CD8B8A /* Resources */,
 			);
 			buildRules = (
@@ -291,8 +283,9 @@
 				04BD8C0229C1063100F94F7D /* RiceCollectionViewCell.swift in Sources */,
 				04BD8BFD29BF4DC800F94F7D /* NetworkHelpers.swift in Sources */,
 				04BD8BF229BF250300F94F7D /* Constants.swift in Sources */,
+				04754B3729C5C60B00ED9416 /* SearchCoctails.swift in Sources */,
 				04BD8BFB29BF49A200F94F7D /* ProductModel.swift in Sources */,
-				04BD8BF729BF3E2100F94F7D /* RiceViewModel.swift in Sources */,
+				04BD8BF729BF3E2100F94F7D /* CoctailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

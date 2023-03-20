@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductsCellDelegate: AnyObject {
-    func didSelectionsProducts (item: Menu)
+    func didSelectionsProducts (item: Coctails)
 }
 
 class RiceCollectionViewCell: UICollectionViewCell {
@@ -26,21 +26,23 @@ class RiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var menuLabel: UILabel!
     @IBAction func buy(_ sender: Any) {
     }
+    
     weak var delegate: ProductsCellDelegate?
-    private var rices: Menu?
-    func display(item: Menu) {
-        rices = item
-        menuImage.image = UIImage(named: item.riceImage)
-        menuLabel.text = item.name
+    private var products: Coctails?
+    func display(item: Coctails) {
+        products = item
+        menuImage.getImage(from: item.strDrinkThumb)
+        menuLabel.text = item.strDrink
+        
     }
     
     @objc
     private func didTapOnImage() {
         print("tapped")
         
-        guard let rices = rices else {
+        guard let products = products else {
             return
         }
-        delegate?.didSelectionsProducts(item: rices)
+        delegate?.didSelectionsProducts(item: products)
     }
 }

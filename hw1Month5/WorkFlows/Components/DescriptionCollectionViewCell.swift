@@ -13,6 +13,7 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var image: UIImageView!
     
+    var product: Coctails?
     func display(item: Description) {
         image.image = UIImage(named: item.image)
     }
