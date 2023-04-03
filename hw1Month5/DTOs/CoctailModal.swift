@@ -7,12 +7,14 @@
 
 import Foundation
 
-struct CotailsByName: Codable {
-    var drinks: [Coctails]?
-}
 
 struct Coctails: Codable {
-   var idDrink: String
-   var strDrink: String
+    var idDrink: String
+    var strDrink: String
     var strDrinkThumb: String
 }
+
+struct CotailsByName: Codable {
+    var drinks: [Coctails]?
+    }
+    

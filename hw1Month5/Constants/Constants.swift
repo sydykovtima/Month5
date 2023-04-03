@@ -10,6 +10,12 @@ import UIKit
 
 enum Constant {
    static let baseUrl = URL(string:"www.thecocktaildb.com/api/json/v1/1/search.php")!
+    static let url = URL(string: "www.thecocktaildb.com/api/json/v1/1/search.php?")
 }
   
-
+enum Constants {
+    enum Keychain {
+        static let service = "PhoneAuth"
+        static let account = "phoneSigin"
+    }
+}

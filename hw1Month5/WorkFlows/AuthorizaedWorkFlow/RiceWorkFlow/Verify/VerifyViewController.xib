@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerifyViewController" customModule="hw1Month5" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="oEv-9j-UWy" id="818-v1-yOP"/>
+                <outlet property="verifyTexField" destination="icW-WW-7XT" id="8v1-wf-sZU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="722"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="icW-WW-7XT">
+                    <rect key="frame" x="20" y="307" width="375" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="375" id="XCM-Dk-D9x"/>
+                        <constraint firstAttribute="height" constant="42" id="ece-jd-TYk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-6F-JYj">
+                    <rect key="frame" x="0.0" y="654" width="415" height="68"/>
+                    <color key="backgroundColor" red="0.94328004121780396" green="0.79556206803739482" blue="0.3889011834550033" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="3Qg-HS-7tz"/>
+                        <constraint firstAttribute="width" constant="415" id="tnD-C5-zdD"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cc-CH-RtY">
+                    <rect key="frame" x="0.0" y="0.0" width="415" height="79"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm your phone number  via sms code to make sure it is your number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEv-9j-UWy">
+                    <rect key="frame" x="20" y="170" width="375" height="106"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="375" id="IAu-dJ-1If"/>
+                        <constraint firstAttribute="height" constant="106" id="lCt-u4-gPX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsK-5X-auG">
+                    <rect key="frame" x="170" y="426" width="75" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.97322479952948426" green="1" blue="0.91196709708912116" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="oEv-9j-UWy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7d9-eS-x8b"/>
+                <constraint firstItem="9cc-CH-RtY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BbY-oJ-SbX"/>
+                <constraint firstItem="a4b-6F-JYj" firstAttribute="top" secondItem="icW-WW-7XT" secondAttribute="bottom" constant="305" id="CiC-gf-D7V"/>
+                <constraint firstItem="icW-WW-7XT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="IGd-FW-2w9"/>
+                <constraint firstAttribute="bottom" secondItem="a4b-6F-JYj" secondAttribute="bottom" id="JzC-KV-32q"/>
+                <constraint firstItem="a4b-6F-JYj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="OhH-dd-9BC"/>
+                <constraint firstItem="a4b-6F-JYj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PYt-ZG-mPk"/>
+                <constraint firstItem="icW-WW-7XT" firstAttribute="top" secondItem="oEv-9j-UWy" secondAttribute="bottom" constant="31" id="WGq-1G-5hf"/>
+                <constraint firstItem="9cc-CH-RtY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XTo-HI-nlD"/>
+                <constraint firstItem="oEv-9j-UWy" firstAttribute="top" secondItem="9cc-CH-RtY" secondAttribute="bottom" constant="91" id="Zjq-DR-gZQ"/>
+                <constraint firstItem="9cc-CH-RtY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="f5j-EV-GTL"/>
+                <constraint firstItem="oEv-9j-UWy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="170" id="gsT-PJ-g4T"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="icW-WW-7XT" secondAttribute="trailing" constant="20" id="yO5-c1-u2h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="103.84615384615384" y="173.45971563981041"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -17,4 +17,5 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
     func display(item: Description) {
         image.image = UIImage(named: item.image)
     }
+    
 }
